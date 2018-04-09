@@ -3,4 +3,10 @@ A simple, esoteric, Emoji Based language.  EmoGZ (pronounced Emojis) was not mad
 
 EmoGZ is written in pure C and uses no external libraries.  It is interpreted and designed to be relatively memory efficient.  It is designed to be distributed in source form as a compressed binary.
 
+## Installation
+
+### Windows
+ - x86: 
+ - x64:
+
 ## Syntax Reference
