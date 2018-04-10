@@ -2,62 +2,34 @@ package interpreter
 
 import (
 	"github.com/EmoGZ/scanner"
-	"fmt"
-	"os"
 )
 
 func Execute(tokens []scanner.Token) {
-	var operatorStack []string
-	var operandStack []scanner.Token
-	var awaitingOperand bool
-
-	for _, token := range tokens {
+	var operands []scanner.Token
+	var awaitingCommands []string
+	var pos int
+	for pos < len(tokens) {
+		token := tokens[pos]
 		if token.Name == "INTEGER" || token.Name == "CHAR"{
-			if awaitingOperand {
-				operandStack = append(operandStack, token)
+			operands = append(operands, token)
+		} else if len(operands) > 0 && len(awaitingCommands) > 0{
+			val := Run(awaitingCommands[len(awaitingCommands)-1], operands)
+			if returns(awaitingCommands[len(awaitingCommands)-1]) {
+				operands = []scanner.Token{val}
 			} else {
-				fmt.Printf("Unexpected Token [%s at %d]\n", token.Value, token.Index)
-				os.Exit(1)
+				operands = []scanner.Token{}
 			}
+			awaitingCommands = awaitingCommands[:len(awaitingCommands)-1]
+			continue
+		} else if needsArgs(token.Name) {
+			awaitingCommands = append(awaitingCommands, token.Name)
+		} else if returns(token.Name) {
+			val := Run(token.Name, operands)
+			operands = []scanner.Token{val}
 		} else {
-			if awaitingOperand {
-				if returns(token.Name) {
-					if needsArgs(token.Name) {
-						operatorStack = append(operatorStack, token.Name)
-					} else {
-						awaitingOperand = false
-						operandStack = append(operandStack, Run(token.Name, []scanner.Token{}))
-					}
-				} else {
-					if len(operandStack) > 0 {
-						if !needsArgs(token.Name) {
-							awaitingOperand = false
-						}
-						Run(operatorStack[len(operatorStack) - 1], operandStack)
-						operatorStack[len(operatorStack) - 1] = token.Name
-						operandStack = []scanner.Token{}
-					} else {
-						fmt.Printf("Operator does not return a value [%s at %d]\n", token.Name, token.Index)
-					}
-				}
-			} else {
-				if len(operatorStack) > 0 {
-					val := Run(operatorStack[len(operatorStack) - 1], operandStack)
-					if returns(operatorStack[len(operatorStack) - 1]) {
-						operandStack = append(operandStack, val)
-					}
-					operatorStack[len(operatorStack) - 1] = token.Name
-				} else {
-					operatorStack = append(operatorStack, token.Name)
-					if needsArgs(token.Name) {
-						awaitingOperand = true
-					}
-				}
-			}
+			Run(token.Name, operands)
 		}
-	}
-	if len(operatorStack) > 0 {
-		Run(operatorStack[0], operandStack)
+		pos++
 	}
 }
 
