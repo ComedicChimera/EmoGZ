@@ -38,9 +38,9 @@ emo hello.ejz
 
 ## EmoGZ Language Reference
 
-To begin, we recommend using some form an emoji keyboard if you actually
+To begin, we recommend using some form an emoji keyboard if you are actually
 planning on writing EmoGZ.  It should also be noted that
-EmoGZ is in not what one my describe as the most 'user friendly' language, and
+EmoGZ is in not what one might describe as the most 'user friendly' language and
 was designed for fun, not really as a full language.  Despite this, it
 can be used to perform a surprisingly large number of functions even if it is
 just a meme.
@@ -51,15 +51,15 @@ EmoGZ's use of memory differs from normal language standards.  Firstly, there is
 slot of 'working memory' called the **operand**.  However, there is also a region of
 memory called the **cache** in which memory values can be stored and removed when they are not being operated upon.  *The cache starts are 0*
 
-Neither of elements are typed and for all intents and purposes the cache is
-relatively infinite.
+Neither the cache nor the operand is typed and for all intents and purposes the cache is
+relatively infinite. (Limit: 3000 items)
 
 ## Literals
 
 EmoGZ supports two kinds of literals: `characters` and `integers`.  Characters
 were added out of necessity and for convenience, and they represent single
 Unicode characters.  Integers are as they name would entail, numeric values.
-But, while integers can be made negative there is not way to enter an integers
+But, while integers can be made negative there is not a way to enter an integer
 as negative.
 
 ```c
