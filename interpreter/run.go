@@ -31,11 +31,7 @@ func printOperand(args []scanner.Token) scanner.Token {
 		fmt.Println("😂 takes no parameters.")
 		os.Exit(1)
 	}
-	if operand.Name == "CHAR" {
-		fmt.Printf("'%s'\n", operand.Value)
-	} else {
-		fmt.Println(operand.Value)
-	}
+	fmt.Printf(operand.Value)
 	return null
 }
 
