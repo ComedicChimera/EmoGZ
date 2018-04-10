@@ -2,8 +2,7 @@ package scanner
 
 import (
 	"strconv"
-	"fmt"
-	"os"
+	"log"
 )
 
 type Token struct {
@@ -46,8 +45,7 @@ func Scan(text string) []Token {
 				currentToken = ""
 			} else if _, err := strconv.Atoi(char); err != nil && isInt {
 				if _, err := strconv.Atoi(currentToken); err != nil {
-					fmt.Printf("Invalid integer. (%s at position %d)", char, i)
-					os.Exit(1)
+					log.Fatalf("Invalid integer. (%s at position %d)", char, i)
 				}
 				tokens = append(tokens, Token{"INTEGER", currentToken, i})
 				isInt = false
@@ -62,6 +60,14 @@ func Scan(text string) []Token {
 		} else if _, err := strconv.Atoi(char); err == nil {
 			currentToken += char
 			isInt = true
+		}
+	}
+
+	for _, token := range tokens {
+		if token.Name == "CHAR" {
+			if len([]rune(token.Value)) != 1 {
+				log.Fatalf("Invalid character '%s' at position %d.", token.Value, token.Index)
+			}
 		}
 	}
 

@@ -9,13 +9,14 @@ import (
 	"io/ioutil"
 	"github.com/EmoGZ/scanner"
 	"github.com/EmoGZ/interpreter"
+	"log"
 )
 
 func main() {
   if len(os.Args) > 1 {
     file, err := os.Open(os.Args[1])
     if err != nil {
-    	fmt.Println("The specified file does not exist.")
+    	log.Fatal("The specified file does not exist.")
 	}
 
 	r := NewUnicodeReader(file)
