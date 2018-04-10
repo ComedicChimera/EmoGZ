@@ -61,14 +61,14 @@ func scanInput(args []scanner.Token) scanner.Token {
 		fmt.Println("👑 takes no parameters.")
 		os.Exit(1)
 	}
-	var inp string
-	_, err := fmt.Scanf("%s", &inp)
+	var inp rune
+	_, err := fmt.Scanf("%c", &inp)
 	if err != nil {
 		fmt.Println(err)
 		fmt.Println("Failed to read input from the STDIN.")
 		os.Exit(1)
 	}
-	return scanner.Token{Name: "CHAR", Value: string(inp[0]), Index: -1}
+	return scanner.Token{Name: "CHAR", Value: string(inp), Index: -1}
 }
 
 func stop(args []scanner.Token) scanner.Token {
@@ -81,9 +81,7 @@ func stop(args []scanner.Token) scanner.Token {
 }
 
 func pushToCache(args []scanner.Token) scanner.Token {
-	for _, arg := range args {
-		cache = append(cache, arg)
-	}
+	cache = append(args, cache...)
 	if len(cache) > 3000 {
 		fmt.Println("Cache overflow.")
 		os.Exit(1)
