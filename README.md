@@ -1,7 +1,7 @@
 # EmoGZ
 A simple, esoteric, Emoji Based language.  EmoGZ (pronounced Emojis) was not made for practical use, but rather as an experiment to test limits of language design.
 
-EmoGZ is written in pure C and uses no external libraries.  It is interpreted and designed to be relatively memory efficient.
+The EmoGZ interpreter is written in pure Go and uses no external libraries. 
 
 ### Example of a Hello World Program
 ```
@@ -88,5 +88,6 @@ comprise the majority of the language reference.
 | `🍊` | Begin a loop |
 | `🍌` | Break a loop |
 | `🏁` | End a region |
+| `👑` | Get a single character of input |
 
 *Note: All number specific operators will coerce characters to integers.
