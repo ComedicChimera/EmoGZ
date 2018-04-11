@@ -32,12 +32,12 @@ You can download it as a small compressed binary or as a buildable source.
 If your platform currently lacks a binary, you can build it local yourself.
  
  1. Clone this repository and delete the files you don't need. (bin directory, README.md, and test.ejz)
- 2. Download and install [https://golang.org/](Go) for your computer.
+ 2. Download and install [Go](https://golang.org/) for your computer.
  3. Navigate to the directory that you have downloaded EmoGZ to.
  4. Run the command: `go build -o emo.exe main.go`.
  
-*Note: Once you have download your binary make sure to rename it to **emo** and create a PATH variable to it if you want 
-the following build command to work as described.*
+*Note: Once you have download your binary make sure to rename it to **emo** (with executable extension)
+and create a PATH variable to it if you want the following build command to work as described.*
 
 ## Building EmoGZ
 
