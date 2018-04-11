@@ -22,7 +22,7 @@ func main() {
 	r := NewUnicodeReader(file)
 
 	utf8, _ := ioutil.ReadAll(r)
-	text := string(utf8)
+	text := scanner.RemoveComments(string(utf8))
 	tokens := scanner.Scan(text)
 	interpreter.Execute(tokens)
   } else {

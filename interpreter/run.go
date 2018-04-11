@@ -19,6 +19,7 @@ var commands = map[string]func(args []scanner.Token) scanner.Token{
 	"INVERT": changeSine,
 	"INCREMENT": incrementOperand,
 	"DECREMENT": decrementOperand,
+	"EQUAL": compareOperand,
 }
 
 var operand = scanner.Token{"INTEGER", "0", -1}
@@ -27,6 +28,7 @@ var cache []scanner.Token
 var null = scanner.Token{}
 
 func Run(command string, args []scanner.Token) scanner.Token {
+	// fmt.Println(command, operand)
 	return commands[command](args)
 }
 
@@ -141,4 +143,28 @@ func decrementOperand(args []scanner.Token) scanner.Token {
 		operand.Name = "INTEGER"
 	}
 	return null
+}
+
+func compareOperand(args []scanner.Token) scanner.Token {
+	if len(args) < 1 {
+		log.Fatal("💙 takes at least 1 parameter.")
+	}
+	for _, token := range args {
+		if token.Value != operand.Value || token.Name != operand.Name {
+			return scanner.Token{Name:"INTEGER", Value:"0", Index: -1}
+		}
+	}
+	return scanner.Token{Name:"INTEGER", Value:"1", Index: -1}
+}
+
+func IfOperand() bool {
+	if operand.Name == "INTEGER" {
+		val, _ := strconv.Atoi(operand.Value)
+		if val > 0 {
+			return true
+		}
+	} else {
+		return true
+	}
+	return false
 }

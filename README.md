@@ -82,7 +82,7 @@ comprise the majority of the language reference.
 | `💩` | Decrement operand |
 | `😺` | Increment operand |
 | `👌` | Evaluate the next region if the operand is greater than 0 |
-| `💙` | Compare operand and literal to determine if they are equal |
+| `💙` | Compare operand and literal(s) to determine if they are equal |
 | `👀` | Get the operand's value |
 | `💯` | Set the operand's value |
 | `🍦` | Pop a value at a specific location in the cache into the operand |
