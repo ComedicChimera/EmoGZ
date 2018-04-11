@@ -1,6 +1,4 @@
 # EmoGZ
-*WIP*
-
 A simple, esoteric, Emoji Based language.  EmoGZ (pronounced Emojis) was not made for practical use, but rather as an experiment to test limits of language design.
 
 The EmoGZ interpreter is written in pure Go and uses no external libraries. 
