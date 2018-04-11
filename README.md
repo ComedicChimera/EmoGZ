@@ -56,7 +56,7 @@ memory called the **cache** in which memory values can be stored and removed whe
 Neither the cache nor the operand is typed and for all intents and purposes the cache is
 relatively infinite. (Limit: 3000 items)
 
-## Literals
+### Literals
 
 EmoGZ supports two kinds of literals: `characters` and `integers`.  Characters
 were added out of necessity and for convenience, and they represent single
@@ -69,7 +69,7 @@ characters: 'a' '*'
 integers: 12 3453
 ```
 
-## Operations
+### Operations
 
 The following is a table of operations and their purposes.  This will
 comprise the majority of the language reference.
@@ -94,7 +94,41 @@ comprise the majority of the language reference.
 
 *Note: All number specific operators will coerce characters to integers.
 
-## Comments
+#### C Mirrors
+To help you to understand the exact meaning of the operations above, here is each expressed in C's syntax.
+
+*op is a variable representing operand*
+``` c
+// 😂
+printf("%s", op);
+// 🔫
+op = -op;
+// 💀
+return 0; // in main
+// 💩
+op--; // does not return a value
+// 😺
+op++; // does not return a value
+// 👌
+if (op) {
+// 💙
+op == val // add additional == for any additional values
+// 👀
+op // just get the value
+// 💯
+op = val;
+// cache functions omitted as they are difficult to express in c form (as cache can be extended and resized as it necessary)
+// 🍊
+while (true) {
+// 🍌
+break;
+// 🏁
+}
+// 👑
+scanf("%c", &val);
+```
+
+### Comments
 EmoGZ does allow comments.  They are designated with `#` and span to the end of the line.  For example,
 ``` python
 # print 1
