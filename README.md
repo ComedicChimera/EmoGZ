@@ -93,3 +93,14 @@ comprise the majority of the language reference.
 | `👑` | Get a single character of input |
 
 *Note: All number specific operators will coerce characters to integers.
+
+## Comments
+EmoGZ does allow comments.  They are designated with `#` and span to the end of the line.  For example,
+``` python
+# print 1
+😺
+😂 # print operand
+```
+
+*Note: Other non-emoji/literal characters are ignored by the interpreter so they can act as comments as well. **But this practice
+is discouraged to preserve reability.***
