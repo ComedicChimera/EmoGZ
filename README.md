@@ -104,7 +104,7 @@ comprise the majority of the language reference.
 | `🏁` | End a region |
 | `👑` | Get a single character of input |
 
-*Note: All number specific operators will coerce characters to integers.
+*Note: All number specific operators will coerce characters to integers.*
 
 #### C Mirrors
 To help you to understand the exact meaning of the operations above, here is each expressed in C's syntax.
