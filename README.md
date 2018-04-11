@@ -22,8 +22,22 @@ The EmoGZ interpreter is written in pure Go and uses no external libraries.
 You can download it as a small compressed binary or as a buildable source.
 
 ### Windows
- - x86:
- - x64:
+ - x86: https://github.com/ComedicChimera/EmoGZ/blob/master/bin/emo-win-386.exe
+ - x64: https://github.com/ComedicChimera/EmoGZ/blob/master/bin/emo-win-amd64.exe
+ 
+### MacOS
+ - x64: https://github.com/ComedicChimera/EmoGZ/blob/master/bin/emo-osx-amd64.exe
+ 
+### Building from Source
+If your platform currently lacks a binary, you can build it local yourself.
+ 
+ 1. Clone this repository and delete the files you don't need. (bin directory, README.md, and test.ejz)
+ 2. Download and install [https://golang.org/](Go) for your computer.
+ 3. Navigate to the directory that you have downloaded EmoGZ to.
+ 4. Run the command: `go build -o emo.exe main.go`.
+ 
+*Note: Once you have download your binary make sure to rename it to **emo** and create a PATH variable to it if you want 
+the following build command to work as described.*
 
 ## Building EmoGZ
 
