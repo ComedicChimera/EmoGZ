@@ -63,10 +63,23 @@ func Scan(text string) []Token {
 		}
 	}
 
-	for _, token := range tokens {
+	charMap := map[string]string{
+		"\\n": "\n",
+		"\\t": "\t",
+		"\\b": "\b",
+		"\\r": "\r",
+		"\\0": "\0",
+	}
+
+	for i, token := range tokens {
 		if token.Name == "CHAR" {
 			if len([]rune(token.Value)) != 1 {
-				log.Fatalf("Invalid character '%s' at position %d.", token.Value, token.Index)
+				remappedChar, err := charMap[token.Value]
+				if err != nil {
+					log.Fatalf("Invalid character '%s' at position %d.", token.Value, token.Index)
+				} else {
+					tokens[i].Value = remappedChar
+				}
 			}
 		}
 	}
