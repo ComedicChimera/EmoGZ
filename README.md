@@ -89,7 +89,7 @@ comprise the majority of the language reference.
 | Emoji | Meaning |
 | :---: | ------- |
 | `😂` | Print the value in operand to the console |
-| `🔫` | Change the sine of the operand |
+| `🔫` | Change the sign of the operand |
 | `💀`  | End the program |
 | `💩` | Decrement operand |
 | `😺` | Increment operand |
